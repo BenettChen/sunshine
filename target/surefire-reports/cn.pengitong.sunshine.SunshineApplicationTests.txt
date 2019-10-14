@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: cn.pengitong.sunshine.SunshineApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.876 s - in cn.pengitong.sunshine.SunshineApplicationTests
