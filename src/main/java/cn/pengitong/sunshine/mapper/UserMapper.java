@@ -6,6 +6,10 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+/**
+ * @author chenpeng
+ */
+@Mapper
 public interface UserMapper {
 
     @Select("SELECT * FROM users")
