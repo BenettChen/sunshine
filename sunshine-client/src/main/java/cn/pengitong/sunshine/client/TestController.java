@@ -13,13 +13,28 @@ import javax.annotation.Resource;
 @RestController
 public class TestController {
 
-	@Resource
-	private ArticleContentService articleContentService;
+    @Resource
+    private ArticleContentService articleContentService;
 
-	@RequestMapping(value = "/test",method = RequestMethod.GET)
-	public String test(){
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+        return "test success";
+    }
+
+	@RequestMapping("/")
+	public String index(){
+		return "Hello Spring Boot";
+	}
+
+	@RequestMapping("/insert")
+	public String insert() {
 		articleContentService.insert();
-		return "test success";
+		return "success";
+	}
+
+	@RequestMapping("/showAll")
+	public Object showAll() {
+    	return articleContentService.showAll();
 	}
 
 

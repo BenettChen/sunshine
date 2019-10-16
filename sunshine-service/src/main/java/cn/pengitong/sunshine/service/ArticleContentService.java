@@ -6,6 +6,7 @@ import cn.pengitong.sunshine.persist.dao.mapper.ArticleContentMapper;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author: chen peng
@@ -25,6 +26,11 @@ public class ArticleContentService {
         articleContentDO.setGmtCreate(new Date());
         articleContentDO.setGmtModify(new Date());
         articleContentMapper.insert(articleContentDO);
+    }
+
+    public List<ArticleContentDO> showAll() {
+        List<ArticleContentDO> articleContentDOS = articleContentMapper.queryArticleContent();
+        return articleContentDOS;
     }
 
 }

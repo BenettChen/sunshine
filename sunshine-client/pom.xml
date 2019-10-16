@@ -38,13 +38,14 @@
 
     <!--spring boot打包的话需要指定一个唯一的入门-->
     <build>
+        <finalName>sunshine</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>cn.pengitong.sunshine.client.SpringBootStartApplication</mainClass>
+                    <mainClass>cn.pengitong.sunshine.SpringBootStartApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

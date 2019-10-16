@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author chenpeng
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @MapperScan("cn.pengitong.sunshine.persist")
 @ComponentScan({"cn.pengitong.sunshine.service", "cn.pengitong.sunshine.client"})
-@RestController
 @SpringBootApplication
 public class SpringBootStartApplication extends SpringBootServletInitializer {
     @Override
@@ -28,13 +25,5 @@ public class SpringBootStartApplication extends SpringBootServletInitializer {
         SpringApplication.run(SpringBootStartApplication.class, args);
     }
 
-    @RequestMapping("/")
-    public String index(){
-        return "Hello Spring Boot";
-    }
 
-    @RequestMapping("/insert")
-    public String insert() {
-        return "success";
-    }
 }
