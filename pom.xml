@@ -24,7 +24,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <mybatis-spring-boot-starter.version>2.0.0</mybatis-spring-boot-starter.version>
-        <spring-boot-starter-web.version>2.1.9.RELEASE</spring-boot-starter-web.version>
+        <spring-boot.version>2.1.9.RELEASE</spring-boot.version>
+        <mysql.version>8.0.14</mysql.version>
+        <lombok.version>1.18.10</lombok.version>
     </properties>
 
     <packaging>pom</packaging>
@@ -34,12 +36,12 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot-starter-web.version}</version>
+                <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <version>2.1.9.RELEASE</version>
+                <version>${spring-boot.version}</version>
                 <scope>test</scope>
             </dependency>
 
@@ -52,20 +54,20 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.14</version>
+                <version>${mysql.version}</version>
             </dependency>
 
             <!--声明spring boot内嵌tomcat的作用范围  在运行时不起作用-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-tomcat</artifactId>
-                <version>2.1.9.RELEASE</version>
+                <version>${spring-boot.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.10</version>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
