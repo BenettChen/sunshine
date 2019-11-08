@@ -19,10 +19,10 @@ public class ArticleContentService {
     @Resource
     private ArticleContentMapper articleContentMapper;
 
-    public void insert( ) {
+    public void insert(Integer contentId) {
         ArticleContentDO articleContentDO = new ArticleContentDO();
-        articleContentDO.setArticleContent("文章内容2");
-        articleContentDO.setContentId(2);
+        articleContentDO.setArticleContent("文章内容" + contentId);
+        articleContentDO.setContentId(contentId);
         articleContentDO.setGmtCreate(new Date());
         articleContentDO.setGmtModify(new Date());
         articleContentMapper.insert(articleContentDO);
