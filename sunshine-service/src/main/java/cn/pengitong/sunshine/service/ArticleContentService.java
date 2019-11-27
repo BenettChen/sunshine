@@ -3,6 +3,7 @@ package cn.pengitong.sunshine.service;
 import org.springframework.stereotype.Service;
 import cn.pengitong.sunshine.persist.dao.bean.ArticleContentDO;
 import cn.pengitong.sunshine.persist.dao.mapper.ArticleContentMapper;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -19,6 +20,7 @@ public class ArticleContentService {
     @Resource
     private ArticleContentMapper articleContentMapper;
 
+    @Transactional
     public void insert(Integer contentId) {
         ArticleContentDO articleContentDO = new ArticleContentDO();
         articleContentDO.setArticleContent("文章内容" + contentId);

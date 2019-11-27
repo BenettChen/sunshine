@@ -12,7 +12,7 @@ import java.util.List;
 public interface ArticleContentMapper {
 
 
-    @Select("SELECT * FROM article_content WHERE content_id = #{id}")
+    @Select("SELECT * FROM article_content WHERE content_id = #{contentId}")
     ArticleContentDO queryArticleContentByContentId(@Param("contentId") Integer contentId);
 
     @Select("SELECT * FROM article_content")

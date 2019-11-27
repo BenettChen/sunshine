@@ -9,8 +9,7 @@ import java.util.Date;
  * @author chenpeng
  */
 @Data
-public class BaseDo {
-    private Long id;
+public class BaseDO {
     private Date gmtCreate;
     private Date gmtModify;
 }
