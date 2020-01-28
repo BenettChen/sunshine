@@ -1,0 +1,263 @@
+date_format_for_frontend: yyyy-MM-ddHH:mm:ss
+default_timezone: Asia/Shanghai
+error_code_prefix_invalid_data_format: invalid_data_format_
+error_code_prefix_mandatory_field_missing: mandatory_field_missing_
+feign:
+    httpclient:
+        enabled: true
+    hystrix:
+        enabled: true
+headers:
+    client-version: X-CLIENT-VERSION
+    request-id: X-SERVICE-REQUEST-ID
+    jwt-user-header: X-JWT-USER
+hystrix:
+    command:
+        default:
+            circuitBreaker:
+                enabled: false
+            execution:
+                isolation:
+                    strategy: SEMAPHORE
+                    thread:
+                        timeoutInMilliseconds: 30000
+            fallback:
+                enabled: false
+index_lead_salesforce_id_unique: idx_lead_salesforce_id_unique
+index_mongo_default_idx_id: _id_
+index_person_mobile_unique: idx_mobile_unique
+index_person_salesforce_id_unique: idx_person_salesforce_id_unique
+keyvault:
+    enabled: true
+local_privilege:
+    dealer_id: XY03652215
+    enable: false
+    user_name: local_test
+max_tags_quantity: 6
+message:
+    broker:
+        default: mute
+mobile_number_length: 11
+multipart:
+    maxFileSize: 20Mb
+    maxRequestSize: 20Mb
+
+redis_cache_expire_seconds: 7200
+
+kpi_v2_cache:
+    enabled: true
+    redis_cache_key_prefix: kpi_v2
+    redis_cache_short_expire_seconds: 43200
+    redis_cache_long_expire_seconds: 86400
+
+response_body: response
+response_error: error_message
+response_error_code: error_code
+ribbon:
+    ServerListRefreshInterval: 1000
+service_bus:
+    connection_string: ''
+spring:
+    application:
+        name: report-management
+    cloud:
+        config:
+            discovery:
+                enable: true
+        consul:
+            discovery:
+                catalogServicesWatch:
+                    enabled: false
+                heartbeat:
+                    enabled: true
+                    ttlValue: 10
+                preferIpAddress: true
+                register: true
+            enabled: false
+            ribbon:
+                enabled: true
+    jpa:
+        properties:
+            hibernate:
+                dialect: com.daimler.otr.dialect.OTRSQLServerDialect
+                enable_lazy_load_no_trans: true
+        hibernate:
+          use-new-id-generator-mappings: false
+    redis:
+        database: 1
+        host: redis
+        password: ''
+        pool:
+        port: 6379
+        useSsl: true
+        jedis:
+            pool:
+                max-active: 500
+                max-idle: 100
+                max-wait: 1000
+    messages:
+      always-use-message-format: false
+      basename: i18n/error-messages
+      encoding: UTF-8
+      fallback-to-system-locale: true
+      cache-duration: -1
+    autoconfigure:
+      exclude: org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration
+springfox:
+    documentation:
+        swagger:
+            v2:
+                path: /swagger
+
+powerbi:
+    client_id: ''
+    client_secret: ''
+    resource_of_azure_access_token: 'https://analysis.chinacloudapi.cn/powerbi/api'
+    tenant_id: 'fc5dd6f5-ca13-4bcb-840d-d3c1638f63b1'
+    intelligence_report:
+      group_id: ''
+    accident_car:
+      sample_gs_code: 'SAMPLE'
+      group_id: ''
+    parts:
+      group_id: ''
+      reports:
+        movement_detail: ''
+        movement_overview: ''
+        obsolete_parts: ''
+        stock_aging: ''
+        stock: ''
+        purchase_order: ''
+        invoice_inspection: ''
+        goods_collection: ''
+        goods_receive: ''
+        orders: ''
+        purchase_remans: ''
+        lost_sales: ''
+
+azure_storage:
+  container:
+    contract:
+  account:
+    url:
+sas:
+  pdf:
+vehicle_management_service:
+    name: vehicle-management
+    url: http://vehicle-management:8080
+account_management_service:
+    name: account-management
+    url: http://account-management:8080
+lead_management_service:
+    name: lead-management
+    url: http://lead-management:8080
+
+azure_api:
+  name: azure-api
+  url: https://login.chinacloudapi.cn
+
+power_bi_api:
+  name: power-bi-api
+  url: https://api.powerbi.cn/v1.0
+
+keyvault.broker.default: azure
+
+---
+spring:
+    profiles: local
+    datasource:
+        url: ''
+        username: ''
+        password: ''
+        name: otr_report
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        max-wait: 1000
+        max-active: 8
+        min-idle: 4
+        initial-size: 4
+        test-on-borrow: true
+        test-on-return: true
+        validation-query: SELECT 1
+
+    jpa:
+        show-sql: true
+
+    redis:
+        host: localhost
+        password:
+        port: 6379
+        database: 0
+        useSsl: false
+        jedis:
+          pool:
+            max-active: 500
+            max-idle: 100
+            max-wait: 1000
+
+    cloud:
+        consul:
+            enabled: false
+            discovery:
+                register: false
+            ribbon:
+                enabled: false
+        config:
+            enabled: false
+
+dw:
+    datasource:
+        url: ''
+        username: ''
+        password: ''
+        name: otr_report_dw
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        max-wait: 1000
+        max-active: 8
+        min-idle: 4
+        initial-size: 4
+        test-on-borrow: true
+        test-on-return: true
+        validation-query: SELECT 1
+
+local_privilege:
+    enable: false
+
+keyvault:
+    enabled: false
+
+server:
+    port: 30003
+
+powerbi:
+    client_id: ''
+    client_secret: ''
+    resource_of_azure_access_token: 'https://analysis.chinacloudapi.cn/powerbi/api'
+    tenant_id: 'fc5dd6f5-ca13-4bcb-840d-d3c1638f63b1'
+    intelligence_report:
+      group_id: ''
+    accident_car:
+      sample_gs_code: 'SAMPLE'
+      group_id: ''
+
+springfox:
+    documentation:
+        swagger.v2.path: /swagger
+
+service_host: http://127.0.0.1:9000
+
+account_management_service:
+    name: account-management
+    host: http://localhost:30000
+lead_management_service:
+  name: lead-management
+  host: http://localhost:30001
+
+keyvault.broker.default: mock
+
+async:
+  repository:
+    max: 20
+  batch:
+    size: 20000
+    dealer:
+      size: 10
