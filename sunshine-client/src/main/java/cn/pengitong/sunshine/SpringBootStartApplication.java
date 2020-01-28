@@ -29,5 +29,11 @@ public class SpringBootStartApplication extends SpringBootServletInitializer {
         System.out.println("测试呀测试。。。");
     }
 
+    public void addTestFunction2() {
+        System.out.println("测试呀测试2。。。");
+    }
 
+    public void addTestFunction3() {
+        System.out.println("测试添加密码");
+    }
 }
