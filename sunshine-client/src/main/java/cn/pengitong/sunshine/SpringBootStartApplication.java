@@ -33,4 +33,8 @@ public class SpringBootStartApplication extends SpringBootServletInitializer {
         System.out.println("添加第四个测试");
     }
 
+    public void addTestFuncation5() {
+        System.out.println("添加第五个测试");
+    }
+
 }
