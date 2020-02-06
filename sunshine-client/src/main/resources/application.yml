@@ -167,8 +167,8 @@ spring:
     profiles: local
     datasource:
         url: ''
-        username: '111'
-        password: '111111'
+        username: ''
+        password: ''
         name: otr_report
         driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
         max-wait: 1000
