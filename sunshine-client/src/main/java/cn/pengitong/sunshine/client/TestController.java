@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * @author chenpeng
@@ -21,6 +22,12 @@ public class TestController {
 
     @RequestMapping(value = "/testException", method = RequestMethod.GET)
     public String testException() {
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        hashMap.put(null, 1);
+        hashMap.put(null, 2);
+        hashMap.put(null, 3);
+        hashMap.put(null, 4);
+        System.out.println(hashMap.size());
         int a = 3 / 0;
         return "sss";
     }

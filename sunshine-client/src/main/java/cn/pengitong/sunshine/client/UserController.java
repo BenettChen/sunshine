@@ -2,6 +2,7 @@ package cn.pengitong.sunshine.client;
 
 import cn.pengitong.sunshine.service.UserService;
 import cn.pengitong.sunshine.service.model.UserModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,6 +18,7 @@ import javax.annotation.Resource;
 public class UserController {
 
     @Resource
+    @Autowired
     private UserService userService;
 
     @RequestMapping("/list/{userId}")
@@ -27,10 +29,13 @@ public class UserController {
     }
 
     @GetMapping(value = "/list")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public Object addUser() {
-        userService.insertUser();
+    public Object addUser()  {
+        try {
+            userService.insertUser();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return userService.queryAll();
     }
 
@@ -50,5 +55,6 @@ public class UserController {
     public Object queryNativeUser(@PathVariable("userId") Long userId) {
         return userService.findUserDoByNativeQuery(userId);
     }
+
 
 }

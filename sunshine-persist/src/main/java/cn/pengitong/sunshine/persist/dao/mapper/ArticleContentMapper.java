@@ -21,5 +21,5 @@ public interface ArticleContentMapper {
     @Insert("INSERT INTO article_content(content_id,article_content,gmt_create,gmt_modify) VALUES(#{contentId}, #{articleContent}, #{gmtCreate}, #{gmtModify})")
     void insert(ArticleContentDO articleContent);
 
-
+    List<ArticleContentDO> beatchQuery(List<Integer> dealIds);
 }

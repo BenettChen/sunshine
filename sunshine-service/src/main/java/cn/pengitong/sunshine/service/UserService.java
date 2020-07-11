@@ -1,14 +1,18 @@
 package cn.pengitong.sunshine.service;
 
 import cn.pengitong.sunshine.persist.dao.bean.UserDO;
+import cn.pengitong.sunshine.persist.dao.mapper.ArticleContentMapper;
 import cn.pengitong.sunshine.persist.repository.CrudUserRepository;
 import cn.pengitong.sunshine.persist.repository.UserRepository;
 import cn.pengitong.sunshine.service.model.UserModel;
 import com.google.common.collect.Lists;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 /**
@@ -24,6 +28,9 @@ public class UserService {
     @Resource
     private UserRepository userRepository;
 
+    @Resource
+    private ArticleContentService articleContentService;
+
     public UserModel queryUserById(Long userId) {
         UserDO userDO = crudArticleContentRepository.findById(userId).get();
         UserModel userModel = assembleUserModel(userDO);
@@ -36,11 +43,25 @@ public class UserService {
                 .map(this::assembleUserModel).collect(Collectors.toList());
     }
 
-    public void insertUser() {
-        UserDO userDO = new UserDO(1L, "123123", "name1", "psw1");
-        UserDO save = crudArticleContentRepository.save(userDO);
+    @Transactional
+    public void insertUser() throws Exception {
+        Double random = Math.random() * 1000D;
+        long id = random.longValue();
+        UserDO save = crudArticleContentRepository.save(new UserDO(id, "123123", "name1", "psw1"));
         System.out.println(save);
+        addUser();
+        exception();
     }
+
+    @Transactional
+    public void addUser() {
+        articleContentService.insert();
+    }
+
+    public void exception() {
+        System.out.println(1 / 0);
+    }
+
 
     private UserModel assembleUserModel(UserDO userDO) {
         UserModel userModel = new UserModel();
